@@ -26,12 +26,16 @@ class App extends React.Component {
     return (
       this.state.errorMessage
       ? ( <div>Error: {this.state.errorMessage}</div> )
-      : ( <div>
-            Latitude: {this.state.lat}
-            <br/>
-            Longitude: {this.state.long}
-          </div> 
-        )
+      : (
+        this.state.lat && this.state.long
+        ? ( <div>
+              Latitude: {this.state.lat}
+              <br/>
+              Longitude: {this.state.long}
+            </div> 
+          )
+        : <div>Loading</div>
+      )
     )
   }
 }
